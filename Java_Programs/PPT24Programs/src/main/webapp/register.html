@@ -1,0 +1,50 @@
+<!doctype html>  
+  <body>  
+     <form action="servlet/Register" method="post">  
+        <fieldset style="width:20%; background-color:#ccffeb">
+           <h2 align="center">Registration form</h2><hr>
+           <table>
+              <tr>
+                 <td>Name</td>
+                 <td><input type="text" name="userName" required /></td>
+              </tr>  
+              <tr>
+                 <td>Password</td>
+                 <td><input type="password" name="userPass" required /></td>
+              </tr>  
+              <tr>
+                 <td>Email Id</td>
+                 <td><input type="text" name="userEmail" required /></td>
+              </tr>  
+              <tr>
+                 <td>Mobile</td>
+                 <td><input type="text" name="userMobile" required/></td>
+              </tr>  
+              <tr>
+                 <td>Date of Birth</td>
+                 <td><input type="date" name="userDOB" required/></td>
+              </tr>  
+              <tr>
+                 <td>Gender</td>
+                 <td><input type="radio" name="gender" value="male" checked> Male
+                 <input type="radio" name="gender" value="female"> Female </td></tr>
+              <tr>
+                 <td>Country</td>
+                 <td><select name="userCountry" style="width:130px">  
+                    <option>Select a country</option>  
+                    <option>India</option>  
+                    <option>America</option>  
+                    <option>England</option>  
+                    <option>other</option></select>
+                 </td>
+              </tr>
+              <tr>
+                 <td><input type="reset" value="Reset"/></td>
+                 <td><input type="submit" value="Register"/></td>
+              </tr>
+           </table>
+        </fieldset>  
+     </form>  
+  </body>  
+</html>
+
