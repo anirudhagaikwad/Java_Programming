@@ -1,0 +1,10 @@
+Eclipse Java Path
+------------------------------------------------
+/opt/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.6.v20230204-1729/jre/bin/
+
+-------------------------------------------------
+Add following line at end of .profile file to set envirountment variable
+
+export PATH=$PATH:/opt/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.6.v20230204-1729/jre/bin
+
+

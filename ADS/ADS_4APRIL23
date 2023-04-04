@@ -1,0 +1,292 @@
+A)Implement a stack that can return the minimum element in O(1) time.
+
+B)Design a stack that supports the following operations in O(1) time: push, pop, top, getMin, and size.
+
+C)Find the lowest common ancestor of two nodes in a BST.
+
+D)Find the kth smallest element in a BST.
+
+E)Check if a binary tree is a BST.
+
+F)Implement a BST and its basic operations (insertion, deletion, searching).
+
+
+------------ Answers -----------------------------------
+A)
+class MinStack {
+    Stack<Integer> stack = new Stack<>();
+    Stack<Integer> minStack = new Stack<>();
+
+    public void push(int x) {
+        stack.push(x);
+        if (minStack.isEmpty() || x <= minStack.peek()) {
+            minStack.push(x);
+        }
+    }
+
+    public void pop() {
+        if (stack.isEmpty()) return;
+        int val = stack.pop();
+        if (val == minStack.peek()) {
+            minStack.pop();
+        }
+    }
+
+    public int top() {
+        return stack.isEmpty() ? -1 : stack.peek();
+    }
+
+    public int getMin() {
+        return minStack.isEmpty() ? -1 : minStack.peek();
+    }
+}
+
+/*
+One approach to solving this problem is to use two stacks, one to store the elements of the stack and another to store the minimum elements
+In this implementation, the push operation checks whether the element being pushed is smaller than or equal to the current minimum element. If it is, it is pushed onto the minStack as well. The pop operation removes the top element from the stack and checks whether it is equal to the current minimum element. If it is, it is also removed from the minStack. The top operation returns the top element of the stack, and the getMin operation returns the top element of the minStack.
+
+*/
+-------------------------
+B)
+class StackWithMin {
+    private Node top;
+    private int min;
+    private int size;
+
+    private class Node {
+        int val;
+        Node next;
+        int min;
+
+        private Node(int val, int min, Node next) {
+            this.val = val;
+            this.min = min;
+            this.next = next;
+        }
+    }
+
+    public StackWithMin() {
+        top = null;
+        min = Integer.MAX_VALUE;
+        size = 0;
+    }
+
+    public void push(int x) {
+        int newMin = Math.min(x, min);
+        Node newNode = new Node(x, newMin, top);
+        top = newNode;
+        min = newMin;
+        size++;
+    }
+
+    public void pop() {
+        if (top == null) return;
+        top = top.next;
+        min = top.min;
+        size--;
+    }
+
+    public int top() {
+        if (top == null) return -1;
+        return top.val;
+    }
+
+    public int getMin() {
+        if (top == null) return -1;
+        return top.min;
+    }
+
+    public int size() {
+        return size;
+    }
+}
+
+/*
+To support all these operations in O(1) time, we can use a linked list implementation of a stack and store some additional information about the minimum element and the size of the stack. 
+
+In this implementation, we use a Node class to represent each element in the stack. Each node stores the element value, the minimum element value seen so far, and a reference to the next node in the stack. When we push a new element onto the stack, we calculate the new minimum element value and store it in the min field of the StackWithMin class. We also update the size of the stack. When we pop an element, we simply remove the top node from the stack.
+
+*/
+--------------------------------
+C)
+class Node {
+    int val;
+    Node left;
+    Node right;
+    Node(int val) { this.val = val; }
+}
+
+class BST {
+    Node root;
+
+    public Node lowestCommonAncestor(Node root, Node p, Node q) {
+        if (root == null) return null;
+
+        if (root.val > p.val && root.val > q.val)
+            return lowestCommonAncestor(root.left, p, q);
+        else if (root.val < p.val && root.val < q.val)
+            return lowestCommonAncestor(root.right, p, q);
+        else
+            return root;
+    }
+}
+
+/*
+The lowest common ancestor (LCA) of two nodes in a BST is the node that is the closest ancestor to both nodes. One approach to find the LCA of two nodes p and q in a BST is to traverse the tree from the root and keep track of the last node that is less than p and greater than q.
+In this implementation, we check if root is greater than both p and q. If it is, we recurse on the left subtree. If it is less than both p and q, we recurse on the right subtree. Otherwise, we return root, which is the LCA.
+
+*/
+------------------------------
+D)
+class Node {
+    int val;
+    Node left;
+    Node right;
+    Node(int val) { this.val = val; }
+}
+
+class BST {
+    Node root;
+
+    public int kthSmallest(Node root, int k) {
+        Stack<Node> stack = new Stack<>();
+        Node curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+
+            curr = stack.pop();
+            if (--k == 0) return curr.val;
+            curr = curr.right;
+        }
+
+        return -1;
+    }
+}
+
+/*
+One approach to find the kth smallest element in a BST is to do an in-order traversal of the tree and keep track of the count of nodes visited. When we have visited k nodes, we return the value of the current node.
+In this implementation, we use a stack to perform an in-order traversal of the tree. When we pop a node off the stack, we decrement k. When k becomes 0, we return the value of the current node.
+*/
+
+-------------------------------
+E)
+class Node {
+    int val;
+    Node left;
+    Node right;
+    Node(int val) { this.val = val; }
+}
+
+class BinaryTree {
+    Node root;
+
+    public boolean isBST() {
+        return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBST(Node root, int minVal, int maxVal) {
+        if (root == null) return true;
+
+        if (root.val < minVal || root.val > maxVal) return false;
+
+        return isBST(root.left, minVal, root.val - 1) &&
+               isBST(root.right, root.val + 1, maxVal);
+    }
+}
+
+/*
+One approach to check if a binary tree is a BST is to perform an in-order traversal of the tree and check if the elements are in sorted order. If they are, the tree is a BST.
+In this implementation, we recursively check if each node satisfies the BST property (i.e., the left subtree is less than the node, and the right subtree is greater than or equal to the node). We pass the minimum and maximum values that the current node can take based on its position in the tree.
+*/
+-----------------------------------------
+F)
+class Node {
+    int val;
+    Node left;
+    Node right;
+
+    public Node(int val) {
+        this.val = val;
+        left = null;
+        right = null;
+    }
+}
+
+class BST {
+    Node root;
+
+    public BST() {
+        root = null;
+    }
+
+    public void insert(int val) {
+        root = insertRec(root, val);
+    }
+
+    private Node insertRec(Node root, int val) {
+        if (root == null) {
+            root = new Node(val);
+            return root;
+        }
+
+        if (val < root.val)
+            root.left = insertRec(root.left, val);
+        else if (val > root.val)
+            root.right = insertRec(root.right, val);
+
+        return root;
+    }
+
+    public void delete(int val) {
+        root = deleteRec(root, val);
+    }
+
+    private Node deleteRec(Node root, int val) {
+        if (root == null) return root;
+
+        if (val < root.val)
+            root.left = deleteRec(root.left, val);
+        else if (val > root.val)
+            root.right = deleteRec(root.right, val);
+        else {
+            if (root.left == null) return root.right;
+            else if (root.right == null) return root.left;
+
+            root.val = getMinValue(root.right);
+
+            root.right = deleteRec(root.right, root.val);
+        }
+
+        return root;
+    }
+
+    private int getMinValue(Node root) {
+        int minVal = root.val;
+        while (root.left != null) {
+            minVal = root.left.val;
+            root = root.left;
+        }
+        return minVal;
+    }
+
+    public boolean search(int val) {
+        return searchRec(root, val);
+    }
+
+    private boolean searchRec(Node root, int val) {
+        if (root == null) return false;
+
+        if (val == root.val) return true;
+        else if (val < root.val) return searchRec(root.left, val);
+        else return searchRec(root.right, val);
+    }
+}
+
+/*
+Binary search tree (BST) is a popular data structure in computer science. It is a binary tree where each node has at most two children (left and right), and the left child is less than the parent node, while the right child is greater than or equal to the parent node.
+In this implementation, we have a Node class to represent each node in the BST. The BST class has a root field which points to the root of the tree. We have implemented insert operation to insert a new element in the BST, delete operation to remove an element from the BST, and search operation to search for an element in the BST.
+*/

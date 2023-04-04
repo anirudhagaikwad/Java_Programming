@@ -1,0 +1,161 @@
+A)Huffman Coding: Given a set of characters and their frequencies, construct a binary tree using Huffman coding to minimize the total encoding length.
+
+B)Minimum Platforms: Given arrival and departure times of trains at a station, find the minimum number of platforms required to handle the traffic.
+
+C)Task Scheduling: Given a set of tasks with their respective deadlines and profits, schedule the tasks in a way that maximizes the total profit. A task should be scheduled only if there is enough time to complete it before its deadline.
+
+
+-----------------
+A)
+import java.util.PriorityQueue;
+
+class HuffmanCoding {
+    static class Node implements Comparable<Node> {
+        char ch;
+        int freq;
+        Node left, right;
+
+        Node(char ch, int freq) {
+            this.ch = ch;
+            this.freq = freq;
+        }
+
+        Node(char ch, int freq, Node left, Node right) {
+            this.ch = ch;
+            this.freq = freq;
+            this.left = left;
+            this.right = right;
+        }
+
+        boolean isLeaf() {
+            return left == null && right == null;
+        }
+
+        public int compareTo(Node other) {
+            return freq - other.freq;
+        }
+    }
+
+    public Node buildTree(char[] chars, int[] freqs) {
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+
+        for (int i = 0; i < chars.length; i++) {
+            pq.offer(new Node(chars[i], freqs[i]));
+        }
+
+        while (pq.size() > 1) {
+            Node left = pq.poll();
+            Node right = pq.poll();
+            Node parent = new Node('\0', left.freq + right.freq, left, right);
+            pq.offer(parent);
+        }
+
+        return pq.poll();
+    }
+
+    public void printCodes(Node root, String code) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.isLeaf()) {
+            System.out.println(root.ch + ": " + code);
+            return;
+        }
+
+        printCodes(root.left, code + "0");
+        printCodes(root.right, code + "1");
+    }
+
+    public static void main(String[] args) {
+        char[] chars = {'a', 'b', 'c', 'd', 'e', 'f'};
+        int[] freqs = {5, 9, 12, 13, 16, 45};
+
+        HuffmanCoding hc = new HuffmanCoding();
+        Node root = hc.buildTree(chars, freqs);
+        hc.printCodes(root, "");
+    }
+}
+
+/*
+The code builds a binary tree using the given characters and their frequencies, and prints the Huffman codes for each character. The buildTree method uses a priority queue to merge the two nodes with the lowest frequencies at each step, until a single root node is left. The printCodes method recursively traverses the tree, assigning '0' to left edges and '1' to right edges, and printing the codes for each leaf node.
+*/
+-----------------
+B)
+import java.util.Arrays;
+
+class MinimumPlatforms {
+    public int minPlatforms(int[] arrival, int[] departure) {
+        Arrays.sort(arrival);
+        Arrays.sort(departure);
+
+        int n = arrival.length;
+        int i = 0, j = 0;
+        int platforms = 0, maxPlatforms = 0;
+
+        while (i < n && j < n) {
+            if (arrival[i] <= departure[j]) {
+                platforms++;
+                i++;
+            } else {
+                platforms--;
+                j++;
+            }
+
+            maxPlatforms = Math.max(maxPlatforms, platforms);
+        }
+
+        return maxPlatforms;
+    }
+}
+
+----------------------------
+C)
+import java.util.Arrays;
+import java.util.Comparator;
+
+class Task {
+    int id;
+    int deadline;
+    int profit;
+
+    Task(int id, int deadline, int profit) {
+        this.id = id;
+        this.deadline = deadline;
+        this.profit = profit;
+    }
+}
+
+class TaskScheduling {
+    public int maxProfit(Task[] tasks) {
+        Arrays.sort(tasks, Comparator.comparingInt(t -> -t.profit));
+
+        int n = tasks.length;
+        int[] slots = new int[n + 1];
+        for (int i = 1; i <= n; i++) slots[i] = i;
+
+        int maxProfit = 0;
+        for (int i = 0; i < n; i++) {
+            int deadline = tasks[i].deadline;
+            int slot = findSlot(slots, deadline);
+
+            if (slot > 0) {
+                maxProfit += tasks[i].profit;
+                slots[slot] = slot - 1;
+            }
+        }
+
+        return maxProfit;
+    }
+
+    private int findSlot(int[] slots, int deadline) {
+        for (int i = deadline; i > 0; i--) {
+            if (slots[i] > 0) {
+                return slots[i];
+            }
+        }
+
+        return 0;
+    }
+}
+
