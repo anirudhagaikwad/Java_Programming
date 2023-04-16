@@ -21,8 +21,8 @@ public static String encode(String input, int key) {
 
 public static void main(String ar[]){
 
-String message = "Literals In Java";
-int key = 11;
+String message = "India";
+int key = 71;
 
 String encodedMessage = encode(message, key);
 System.out.println("Encoded message: " + encodedMessage);
