@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="#2_Tokens"/>
+	<classpathentry kind="src" path="#24_Servlet/src/main/java"/>
+	<classpathentry kind="src" path="#3_Tokens_DataTypes"/>
+	<classpathentry kind="output" path="#24_Servlet/build/classes"/>
+</classpath>

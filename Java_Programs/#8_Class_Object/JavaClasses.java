@@ -65,7 +65,7 @@ public class JavaClasses {
 
 
 /* Nested Class : A class defined within another class is known as nested class 
- *                      Nestd class enables you to logically group classes that are use in only one place
+ *                      Nested class enables you to logically group classes that are use in only one place
  *                      Its increases the use of encapsulation and create more readable,maintainable code                       
 */
 

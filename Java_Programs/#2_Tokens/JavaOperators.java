@@ -1,4 +1,4 @@
-package javaintro;
+
 
 /*
  * Operators are symbols that perform specific operation on one,two or three operands and then return result
@@ -150,5 +150,122 @@ public class JavaOperators {
 		 
 		
 	}//main()
+	
+	void bitwiseAND() {
+/*
+ Bitwise AND Operator (&)
+This operator returns 1 if both the operands are 1 or else it returns 0.
 
+Check out the below truth table for understanding the Bitwise AND Operator. Let us consider two operands A and B that can only take the Binary Values 1 or 0.
+
+A	B	A & B
+0	0	0
+0	1	0
+1	0	0
+1	1	1
+ */
+		int a = 12; // Binary representation: 1100
+		int b = 9;  // Binary representation: 1001
+		                              //AND = 1000
+		int c = a & b; // Bitwise AND operation binary 1000 = decimal 8
+		System.out.println(c); // Output: 8 (Binary representation: 1000)
+
+	}
+	
+	void biwiseOR() {
+/*
+Bitwise OR Operator (|)
+This operator returns 1 if either of the bits in the operand is 1, else it returns 0.
+
+Below is the Truth Table for Bitwise OR Operator and you can learn the demonstration of the Bitwise OR Operator. Here A, B are Two Operands on which Bitwise OR Operation is performed.
+
+A	B	A | B
+0	0	0
+0	1	1
+1	0	1
+1	1	1		
+ */
+		int a = 3;   // binary representation: 0011
+		int b = 6;   // binary representation: 0110
+		int c = a | b;  // binary representation: 0111 (7 in decimal)
+		System.out.println(c); // Output: 7
+
+	}
+	
+	void bitwiseComplement() {
+/*
+Bitwise Complement Operator(~)
+This operator inverts all of the bits of its operands. It is denoted by the symbol ~. However, this Bitwise Complement Operator in Java works with a single operand only unlike others.		 
+ */
+		int a = 10; // Binary representation of 10 is 1010
+		int b = ~a; // Binary representation of ~a is 0101 (complement of 1010)
+		System.out.println(b); // Output: -11
+	}
+	
+	void bitwiseEclusiveOR() {
+/*
+Bitwise Exclusive OR Operator (^)
+This operator returns 1 if the corresponding bits are different, else it returns 0. If both the operators are 0 or if both of them are 1 then the result is 0.
+
+Check out the below truth table to understand the Bitwise Exclusive OR Operator clearly. Let A and B be two operands that take the binary values i.e. 0 or 1.
+
+A	B	A ^ B
+0	0	0
+0	1	1
+1	0	1
+1	1	0
+	
+		 1 1 0 1   (1101)
+     XOR 1 0 1 0   (1010)
+ --------------------------
+         0 1 1 1   (0111)
+ */
+		int a = 13;     // binary 1101
+		int b = 10;     // binary 1010
+		int c = a ^ b;  // binary 0111 (decimal 7)
+	}
+
+	void bitwiseShiftLeft() {
+/*
+	This means that the 1 in the ones place gets shifted to the left by 2 positions,
+	 resulting in the binary number 10100
+Note that the bitwise left shift operator can also be used to multiply an 
+integer by a power of 2. In the example above, shifting a to the left by 2 positions is equivalent 
+to multiplying a by 2^2, which is equal to 4. 
+Therefore, b is equal to a multiplied by 4.	 	
+ */
+		int a = 5;      // decimal representation of 5 in binary is 101
+		int b = a << 2; // left shift a by 2 positions
+		System.out.println(b); // Output: 20
+
+
+	}
+	
+	void bitwiseShiftRight() {
+/*
+The bitwise right shift operator (>>), shifts the bits of the first operand to the right by the number of positions specified by the second operand. 
+The leftmost bits are filled with zeros for a non-negative number and with ones for a negative number.		
+ */
+		int num = 12; // binary representation: 0000 1100
+		int result = num >> 2; // shift 2 positions to the right
+		System.out.println(result); // output: 3 (binary representation: 0000 0011)
+
+	}
+	
+	void bitwiseShiftRightZeroFill() {
+/*
+The Shift Right Zero Fill Operator (>>>) is a bitwise operator in Java
+that shifts the bits of a number to the right and fills the leftmost positions with zeros.		
+
+The shift right zero fill operator is useful when we want to shift the
+bits of an unsigned number to the right and ensure that the leftmost 
+positions are filled with zeros. Without the zero fill, a regular 
+shift right operation would fill the leftmost positions with the sign
+bit, which could result in unexpected behavior when working with 
+unsigned numbers.
+ */
+		int x = 12; // Binary representation: 00001100
+		int y = x >>> 2; // Binary representation: 00000011 = 3
+
+	}
 }//JavaOperators
