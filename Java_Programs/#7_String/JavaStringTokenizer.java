@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 /*
  * StringTokenizer class is located in java.util pakage
  * StringTokenizer class is used to break a string into tokens based on provided delimiter
- * StringTokenizer class is deprecated and its avilable pnly for compatibility resons.
+ * StringTokenizer class is deprecated and its avilable only for compatibility resons.
  */
 
 public class JavaStringTokenizer {

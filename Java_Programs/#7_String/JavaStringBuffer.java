@@ -10,6 +10,7 @@ package javaintro;
 public class JavaStringBuffer {
 	
 	void stringBufferMethod() {
+		StringBuffer xy="Hello";
 		StringBuffer sbObj=new StringBuffer("Hello Java");
 		System.out.println(sbObj);
 //append()		
@@ -35,6 +36,8 @@ public class JavaStringBuffer {
 		sbObj.ensureCapacity(27); // (26*2)+2 = 54
 		System.out.println(sbObj.capacity()); // if the argument of the ensureCapacity() is greater than the existing capacity ,then there will be change in existing capacity using rule ;--> newCapacity=(oldCapacity x 2)+2
 		
+//delete()
+		sbObj.delete(2, 4)
 	}
 
 	public static void main(String[] args) {

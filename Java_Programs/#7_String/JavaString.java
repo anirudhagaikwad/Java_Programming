@@ -1,4 +1,4 @@
-package javaintro;
+
 
 /*
  * String is an object that represents sequence of characters, In java string is represented by String class
@@ -113,18 +113,25 @@ public class JavaString {
 		str7.getChars(0, 12, chArray, 0); // Argument 1 : start to copy from String , Argument 2 : dest. copy , Argument 3 : copy in array , Argument 4 :start index to copy from char array
 		System.out.println(chArray);
 		
-//getBytes()
+		
+//getBytes() its used to copy the content of string into byte array
 		byte[] byteArray=str2.getBytes();
 		for(int i=0;i<byteArray.length;i++) {
 			System.out.println(byteArray[i]);
 		}
-		
-	}
+	
+}
 
 	public static void main(String[] args) {
 		JavaString obj=new JavaString();
 		obj.stringMethods();
 
+//toString() If you want to represent any object as a string, toString() method comes into existence
+		System.out.println("ToString : "+obj.toString());//JavaString@277c0f21
+        System.out.println("hashCode : "+obj.hashCode());// hashCode() method returns an integer representation of the hash code value of the JavaString object.
+      
 	}//main()
+	
+	
 
 }//JavaString

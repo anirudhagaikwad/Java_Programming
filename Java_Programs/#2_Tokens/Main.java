@@ -100,7 +100,7 @@ class CommunicationInterface {
         if (rand < 0.5) {
             data = new byte[] { (byte) 0x55 };
         } else {
-            data = new byte[] { (byte) 0xAA };
+            data = new byte[] { (byte) 0xFF };
         }
 
         System.out.println("Received data: " + Arrays.toString(data));
