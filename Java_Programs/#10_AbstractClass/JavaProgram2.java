@@ -5,7 +5,7 @@ package PPT10;
 // Abstract class
 abstract class Helper {
 
-    // Abstract method
+    // static method
     static void demofun()
     {
         // Print statement
