@@ -3,7 +3,7 @@ Demonstrates how multithreading can be used to perform multiple tasks concurrent
 Prints N number of even and odd numbers using multithreading.
 */
 public class EvenOddPrinter {
-    private static final int MAX_NUMBER = 20;
+    private static final int MAX_NUMBER = 15;
 
     public static void main(String[] args) {
         EvenOddRunnable evenRunnable = new EvenOddRunnable(true);
