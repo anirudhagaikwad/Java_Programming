@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Spliterator;
+import java.util.Iterator;
 
 public class LinkedListMethodsDemo {
 
@@ -55,9 +56,10 @@ public class LinkedListMethodsDemo {
 
         // Reversing the order of elements using descendingIterator()
         System.out.print("LinkedList elements in reverse order: ");
-        while (linkedList.descendingIterator().hasNext()) {
-            String element = linkedList.descendingIterator().next();
-            System.out.print(element + " ");
+        Iterator iter=linkedList.descendingIterator();
+        while (iter.hasNext()) {
+            
+            System.out.print(iter.next() + " ");
         }
         System.out.println();
 
