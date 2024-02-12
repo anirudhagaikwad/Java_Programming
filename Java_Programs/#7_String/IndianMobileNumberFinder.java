@@ -28,7 +28,7 @@ public class IndianMobileNumberFinder {
 
 
 /*
-he program first defines a string input containing the text to search for Indian mobile phone numbers. It then defines a regular expression pattern regex that matches Indian mobile phone numbers in various formats, such as +91-0007910000, 91 0007910000, or 00007910000.
+The program first defines a string input containing the text to search for Indian mobile phone numbers. It then defines a regular expression pattern regex that matches Indian mobile phone numbers in various formats, such as +91-0007910000, 91 0007910000, or 00007910000.
 
 The program then creates a Pattern object using the Pattern.compile() method and passes the regex pattern as an argument. It also creates a Matcher object using the pattern.matcher() method and passes the input string as an argument.
 
