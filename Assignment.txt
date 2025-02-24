@@ -1,0 +1,164 @@
+1) Develop a menu-driven arithmetic calculator in Java that allows users to perform basic mathematical operations—addition, subtraction, multiplication, division, 
+and modulus—on two numbers. 
+The program should:
+-Prompt the user to enter two numbers and store them in an array.
+-Allow the user to select an operation from a menu-driven interface.
+-Perform the selected arithmetic operation using a method and store the result in an array.
+-Display the computed result to the user.
+-Continue executing in a loop until the user chooses to exit.
+2) Calculate Compound Interest using method
+3) swap two numbers using method
+4)complete following method to find element and index number from array
+   void findNum(int[] arr,int key)
+5)complete following method to find element and index number from array
+   void findNum(int[][] arr,int key)
+6)complete following method to Finding the Maximum of Three Numbers
+    void findMax(int a,int b,int c)
+7)complete following method to find the largest number from array if found display its index
+   void findLarg(int[] x)
+8)complete following method to Check if a Number is Prime
+     void isPrime(int num)
+10)complete following method to Generating Fibonacci Sequence
+     void genFibonacciSequence(int num)
+11)complete following method to find occurrences of a character in a string
+     void occurrences(String str,char ch)
+12)complete following method to find occurrences of a substring in a string
+     void occurrences(String str,String subStr)
+13)Triangle Type Checker using Composition
+Write a program to determine the type of triangle based on side lengths.  
+- A `Triangle` HAS-A `Checker` that determines if it is Equilateral, Isosceles, or Scalene. 
+14)Time Converter using Composition
+Create a Time Converter where:  
+- A `Time` HAS-A `Converter` that converts seconds into hours, minutes, and seconds.  
+- The user inputs time in seconds, and the program displays it in a readable format. 
+
+
+
+21)Create Method with Exception handling 
+   - method must extract substring from string[][]
+   - and print substring index
+
+22)Create Method with Exception handling 
+Create Local Class to find mobile number from string[][]
+mobile number pattern : +91 6800009055  9860405570  +91-7895421689
+
+23)Calculate your weight on different solar planet using Enum
+
+24)Create lambda to calculate Temperature :
+      Celsius to Fahrenheit:  
+      Fahrenheit to Celsius:  
+      Celsius to Kelvin: 
+      Kelvin to Celsius: 
+
+25)Create lambda to calculate Energy
+       joule (J)  to calories (cal)
+                  calorie (cal)  to joules (J)
+                  kilojoule (kJ) to  joules (J)
+                  kilocalorie (kcal) to joules (J)
+
+26)Perform All Arithmetic Operation using Lambada 
+
+27)Create Enum for Number of Months 
+ - extract any single month from Enum
+ - Iterate on Enum and print it
+ - Print Position of MAY 
+
+
+
+28)Write Java programs to:
+• Print Hello World
+• Add two numbers/binary numbers/characters
+• Calculate compound interest
+• Calculate power of a number
+• Swap two numbers
+
+29)Write Java programs to:
+• Calculate area of rectangle
+• Calculate area and circumference of circle using multiple classes
+• Java program to find ASCII value of a character
+
+30)Write Java programs to:
+• Display prime numbers between 1 and 100 or 1 and n
+• Swap two variables without using the third variable
+• Find the factorial of a number
+• Check if a number is palindrome or not
+• Print Fibonacci series till n
+• Add two integer variables in 5 different ways using functions and control statement
+• Find square root of a number without sqrt method
+• Check Armstrong number
+• Calculate grades of students using their marks
+• Use switch case, recursion, print patterns, etc
+
+31)Write Java programs to:
+• Calculate average of numbers using Array
+• Reverse an array
+• Sort an array in ascending order
+• Convert char Array to String
+• Add two Matrix using Multi-dimensional Arrays
+• Sort strings in alphabetical order
+• Find out the highest and second highest numbers in an array
+• Concatenate two arrays
+
+32)Create a class Employee and encapsulate the data members.
+33)Create demo applications to illustrate different types of inheritance.
+
+34)Create an Array of Employee class and initialize array elements with different employee objects.
+
+35)Create a demo application to understand the role of access modifiers.
+Implement multilevel inheritance using different packages.
+36)Access/invoke protected members/methods of a class outside the package.
+37)Override finalize method to understand the behavior of JVM garbage collector.
+
+39)Create sample classes to understand boxing & unboxing.
+   Use different methods of java defined wrapper classes.
+40)Create StringDemo class and perform different string manipulation methods.
+Tutorial:
+Understand the difference between String / StringBuffer / StringBuilder.
+
+41)    Encrypted File Transfer: Write a program that reads a binary file using FileInputStream, encrypts its content using a simple XOR cipher, and writes it to another file using FileOutputStream. Implement decryption as well.
+
+42)    Merging Large Binary Files: Given multiple large binary files, implement a program that merges them into a single binary file using BufferedInputStream and BufferedOutputStream.
+
+43)    Custom Serialization: Implement a custom serialization mechanism using DataOutputStream and DataInputStream to store and retrieve objects without using ObjectOutputStream and ObjectInputStream.
+
+44)    Byte-level File Compression: Implement a basic RLE (Run-Length Encoding) compression algorithm using ByteArrayOutputStream and ByteArrayInputStream. Compress and decompress a binary file.
+
+45)    Partial File Read and Write: Implement a program that reads a specific byte range from a large file using RandomAccessFile and writes it to another file. Allow the user to specify the start and end byte positions dynamically.
+
+
+ 46)   Reverse Content of a Large File: Read a large text file using BufferedReader, reverse the content line by line, and write it to another file using BufferedWriter without loading the entire file into memory.
+
+ 47)   Find and Replace Words in a File: Implement a program that reads a text file using FileReader, replaces all occurrences of a given word with another word, and writes the updated content to a new file using FileWriter.
+
+ 48)   Custom CSV Parser: Create a program that reads a CSV file using BufferedReader, processes each line to extract values (handling quoted strings properly), and writes a formatted output using BufferedWriter.
+
+ 49)   Word Frequency Counter in Large File: Read a large text file using BufferedReader and count the frequency of each unique word, ignoring case sensitivity. Store the results in another file.
+
+ 50)  Extract Palindromes from a File: Write a program that reads a file character by character using FileReader, extracts all palindrome words, and writes them to another file using FileWriter
+
+51)Password Masking on Console: Implement a program that reads a password from the console using Console.readPassword() and prints a masked version (e.g., ) while storing the actual input securely.
+
+52)Interactive Command-line Chat: Simulate a chat system where user inputs messages via System.in and receives predefined responses. Allow users to exit with a specific command.
+
+53)Logging User Input to a File: Capture user inputs from System.in continuously and log them to a file using PrintWriter. Include timestamps for each input.
+
+54)Multi-Threaded Console Chat: Create a multi-threaded console-based chat where one thread reads user input and another thread prints simulated chatbot responses.
+
+55)Real-time Data Streaming: Read continuous numeric inputs from the console, process them (e.g., compute moving averages), and write the results in real time to a file using PrintWriter.
+
+Same above but it NIO based
+50) Extract Palindromes from a File (NIO-based version)  
+Write a program that reads a file character by character using FileChannel and ByteBuffer, extracts all palindrome words, and writes them to another file using FileChannel and ByteBuffer instead of FileReader and FileWriter.  
+51) Password Masking on Console (NIO-based version)  
+Implement a program that reads a password from the console using StandardInputStream (System.in) via Channel-based NIO input stream, processes it securely, and prints a masked version (e.g., ``) while storing the actual input securely in a character buffer instead of using Console.readPassword().  
+52) Interactive Command-line Chat (NIO-based version)  
+Simulate a chat system where user inputs messages via Non-blocking NIO Channel (AsynchronousChannel for System.in) and receives predefined responses. Allow users to exit with a specific command.  
+53) Logging User Input to a File (NIO-based version)  
+Capture user inputs from System.in using Channels and log them to a file using FileChannel and ByteBuffer instead of PrintWriter. Each input should include a timestamp. 
+54) Multi-Threaded Console Chat (NIO-based version)  
+Create a multi-threaded console-based chat where one thread reads user input using NIO Channels (System.in via Channels.newChannel) and another thread prints simulated chatbot responses asynchronously.  
+55) Real-time Data Streaming (NIO-based version)  
+Read continuous numeric inputs from the console using AsynchronousByteChannel or NIO non-blocking I/O, compute moving averages dynamically, and write the results in real time to a file using FileChannel and ByteBuffer, instead of PrintWriter.  
+
+
+

@@ -1,4 +1,4 @@
-package fundamentals;
+package oop;
 /*
 ### Java Operators and Precedence
 In Java, operators are special symbols that perform operations on variables and values. 
@@ -199,7 +199,7 @@ public class P2_Operators {
 		}
 
 /*
-**Bitwise AND Operator (&)**
+Bitwise AND Operator (&)
 This operator returns 1 if both the operands are 1, otherwise, it returns 0.
 Check out the below truth table for understanding the Bitwise AND Operator.
 Let us consider two operands A and B that can only take the Binary Values 1 or 0.
@@ -213,7 +213,7 @@ Let us consider two operands A and B that can only take the Binary Values 1 or 0
 
 ---
 
-**Bitwise OR Operator (|)**
+Bitwise OR Operator (|)
 This operator returns 1 if either of the bits in the operand is 1, else it returns 0.
 Below is the Truth Table for Bitwise OR Operator.
 
@@ -226,7 +226,7 @@ Below is the Truth Table for Bitwise OR Operator.
 
 ---
 
-**Bitwise Complement Operator (~)**
+Bitwise Complement Operator (~)
 This operator inverts all of the bits of its operands. It is denoted by the symbol `~`.
 However, this Bitwise Complement Operator in Java works with a single operand only, unlike others.
 
@@ -238,7 +238,7 @@ int result = ~a; // Binary: 1010 (2's complement representation)
 
 ---
 
-**Bitwise Exclusive OR Operator (^)**
+Bitwise Exclusive OR Operator (^)
 This operator returns 1 if the corresponding bits are different, else it returns 0.
 If both the operands are 0 or both are 1, then the result is 0.
 
@@ -251,7 +251,7 @@ If both the operands are 0 or both are 1, then the result is 0.
 
 ---
 
-**Bitwise Left Shift (<<)**
+Bitwise Left Shift (<<)
 This means that the 1 in the ones place gets shifted to the left by the specified number of positions,
 resulting in a new binary number.
 
@@ -264,7 +264,7 @@ Note that the bitwise left shift operator can also be used to multiply an intege
 
 ---
 
-**Bitwise Right Shift Zero Fill Operator (>>>)**
+Bitwise Right Shift Zero Fill Operator (>>>)
 This operator shifts bits to the right and fills the leftmost bits with 0 (for unsigned shift).
 
 Example:

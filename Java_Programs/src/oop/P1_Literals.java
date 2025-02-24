@@ -1,4 +1,4 @@
-package fundamentals;
+package oop;
 /*
 ### Java Literals 
 In Java, literals are constant values assigned to variables. 
