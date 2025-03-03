@@ -1,0 +1,28 @@
+##### install PostgreSQL on windows with zip file #####
+1) Download and extract zip file from following url
+https://www.enterprisedb.com/download-postgresql-binaries
+2) Set environment variables for PostgreSQL bin and lib in system variables
+3) Check PostgreSQL version using command 
+~ postgres --version
+4) Create "data" folder into "pgsql" and use following command
+~ D:\postgresql-16.2-1-windows-x64-binaries\pgsql\bin\initdb.exe -U postgres -A password -E utf8 -W -D D:\postgresql-16.2-1-windows-x64-binaries\pgsql\data
+5) Set password for superuser 
+6) Set new system environment variable for database directory i.e. variable name : PGDATA  variable value : D:\postgresql-16.2-1-windows-x64-binaries\pgsql\data
+7) Start PostgreSQL
+~ pg_ctl -l logfile start
+8) Stop PostgreSQL
+~ pg_ctl -l logfile stop
+9) Restart PostgreSQL
+~ pg_ctl -l logfile restart
+
+
+##### How to use pgAdmin4 from browser #####
+1) Open pgadmin4 
+2) Navigate to Open File > Runtime > View Log
+	Scroll untill the bottom then you will find the following Application Server URL: http://127.0.0.1:{PORT_NUMBER}/?key={YOUR_KEY}
+	http://127.0.0.1:59931/?key=YOUR_KEY 
+	Copy this and open in your browser   
+
+          http://127.0.0.1:5017/?key=454e8429-9a13-439d-9c17-b166e49cdd02   
+
+

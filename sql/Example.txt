@@ -1,0 +1,99 @@
+### PostgreSQL `SELECT` Statement – Basics
+
+The `SELECT` statement is used to retrieve data from one or more tables in PostgreSQL. 
+It forms the core of almost every database query.
+
+#### Basic Syntax:
+```sql
+SELECT column1, column2, ... 
+FROM table_name;
+```
+- `column1, column2, ...` → The columns to be retrieved.
+- `table_name` → The table from which to retrieve the data.
+
+---
+
+### 1. Selecting All Columns
+To retrieve all columns from a table, use `*`:
+```sql
+SELECT * FROM users;
+```
+
+---
+
+### 2. Selecting Specific Columns
+To fetch only specific columns:
+```sql
+SELECT name, email FROM users;
+```
+
+---
+
+### 3. Using Aliases
+Column aliases rename columns in the result:
+```sql
+SELECT name AS full_name, email AS contact_email FROM users;
+```
+
+---
+
+### 4. Using Expressions
+You can perform calculations in `SELECT`:
+```sql
+SELECT product_name, price, price * 1.1 AS price_with_tax FROM products;
+```
+
+---
+
+### 5. Using the `FROM` Clause
+The `FROM` clause specifies which table to query. Example:
+```sql
+SELECT order_id, amount FROM orders;
+```
+If using multiple tables (joins), `FROM` defines the main table.
+
+---
+
+### 6. Selecting Distinct Rows (`DISTINCT`)
+To remove duplicate values:
+```sql
+SELECT DISTINCT user_id FROM orders;
+```
+
+---
+
+### 7. Filtering Rows (`WHERE` Clause)
+To retrieve specific rows based on conditions:
+```sql
+SELECT * FROM users WHERE email LIKE '%@gmail.com';
+```
+
+---
+
+### 8. Sorting Results (`ORDER BY`)
+To order the results by a column:
+```sql
+SELECT * FROM products ORDER BY price DESC;
+```
+
+---
+
+### 9. Limiting Results (`LIMIT` and `FETCH`)
+To return only a subset of rows:
+```sql
+SELECT * FROM orders LIMIT 5;
+```
+or
+```sql
+SELECT * FROM orders FETCH FIRST 5 ROWS ONLY;
+```
+
+---
+
+### 10. Grouping Results (`GROUP BY`)
+To aggregate data:
+```sql
+SELECT user_id, COUNT(*) FROM orders GROUP BY user_id;
+```
+
+---

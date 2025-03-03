@@ -158,7 +158,17 @@ Capture user inputs from System.in using Channels and log them to a file using F
 54) Multi-Threaded Console Chat (NIO-based version)  
 Create a multi-threaded console-based chat where one thread reads user input using NIO Channels (System.in via Channels.newChannel) and another thread prints simulated chatbot responses asynchronously.  
 55) Real-time Data Streaming (NIO-based version)  
-Read continuous numeric inputs from the console using AsynchronousByteChannel or NIO non-blocking I/O, compute moving averages dynamically, and write the results in real time to a file using FileChannel and ByteBuffer, instead of PrintWriter.  
+Read continuous numeric inputs from the console using AsynchronousByteChannel or NIO non-blocking I/O, compute moving averages dynamically, and write the results in real time to a file using FileChannel and ByteBuffer, instead of PrintWriter.
+56)Create method to remove specific lines from file,method signature as per follows
+--> private static void removeLine(filePath,1,5,7); // 1,5,7 lines remove from file  
 
+57) PROBLEM 1: Find the Maximum of Three Elements
+    Given three values of a generic type, return the maximum.
+
+58)PROBLEM 2: Swap Two Elements
+   Given a generic array and two indices, swap the elements at these positions.
+
+59)PROBLEM 3: Reverse an Array
+   Given a generic array, reverse its elements.
 
 
