@@ -1,0 +1,349 @@
+-- The SELECT statement allows you to retrieve data from one or more tables.
+1) Selecting data from specific columns
+-- To retrieve data from specific columns of a table, you can specify the column list in the SELECT clause.
+SELECT name, email FROM users;
+
+2) Performing calculations
+SELECT product_name, price, price * 1.18 AS price_with_tax FROM products;
+
+-- Filtering Rows
+3)The ORDER BY is an optional clause of the SELECT statement. 
+-- The ORDER BY clause allows you to sort the result set by one or more sort expressions in ascending and/or descending order.
+SELECT name, email FROM users ORDER BY name ASC;
+SELECT user_id, amount FROM orders ORDER BY amount DESC;
+
+4)The DISTINCT keyword removes duplicate values from a query result. It ensures that each row in the output is unique
+SELECT DISTINCT email FROM users;
+SELECT DISTINCT amount FROM orders;
+
+5)To limit the number of rows returned by a SELECT statement, you use the LIMIT and OFFSET clauses.
+SELECT * FROM users LIMIT 3;
+
+6)The OFFSET clause skips a specified number of rows before returning results.
+SELECT * FROM users OFFSET 3 LIMIT 5;
+--  Skips the first 3 rows and returns the next 5.
+
+7)To select specific rows from a table based on one or more conditions, you use the WHERE clause in the SELECT statement.
+
+
+### Comparison Operators in Postgre  
+
+Comparison operators are used in WHERE clauses and conditional expressions to compare values.
+
+| Operator | Meaning | Example Usage |
+|-||-|
+| `=`  | Equal to | `SELECT * FROM users WHERE name = 'Amit Sharma';` |
+| `<>` or `!=` | Not equal to | `SELECT * FROM products WHERE price <> 1000;` |
+| `<`  | Less than | `SELECT * FROM orders WHERE amount < 5000;` |
+| `>`  | Greater than | `SELECT * FROM products WHERE price > 2000;` |
+| `<=` | Less than or equal | `SELECT * FROM orders WHERE amount <= 1500;` |
+| `>=` | Greater than or equal | `SELECT * FROM users WHERE id >= 5;` |
+
+
+
+### Examples of Using Comparison Operators
+
+🔹 1. Find users with a specific email
+
+SELECT * FROM users WHERE email = 'amit.sharma@example.com';
+
+💡 Returns details of Amit Sharma.
+
+🔹 2. Find orders with an amount greater than ₹2000
+
+SELECT * FROM orders WHERE amount > 2000;
+
+💡 Returns all orders where amount > 2000.
+
+🔹 3. Find products with price not equal to ₹500
+
+SELECT * FROM products WHERE price != 500;
+
+💡 Returns all products except those priced at ₹500.
+
+🔹 4. Get users whose `id` is less than or equal to 3
+
+SELECT * FROM users WHERE id <= 3;
+
+💡 Returns users with id 1, 2, or 3.
+
+The <> (or !=) operator is used to filter out values that are not equal to a specified value.
+🔹 5. Find Products That Are Not Priced at ₹1000
+SELECT * FROM products WHERE price <> 1000;
+
+
+### Logical Operators in Postgre  
+Logical operators are used in WHERE clauses to combine multiple conditions.
+
+| Operator | Meaning | Example Usage |
+|-||-|
+| `AND` | Both conditions must be `TRUE` | `SELECT * FROM users WHERE name = 'Amit Sharma' AND email = 'amit.sharma@example.com';` |
+| `OR` | At least one condition must be `TRUE` | `SELECT * FROM users WHERE name = 'Amit Sharma' OR name = 'Priya Patel';` |
+| `NOT` | Negates the condition (`TRUE` → `FALSE`, `FALSE` → `TRUE`) | `SELECT * FROM users WHERE NOT name = 'Amit Sharma';` |
+
+## Examples of Logical Operators
+
+### 1. `AND` – Both Conditions Must Be True  
+🔹 Find orders where `amount > 2000` and `user_id = 3`  
+
+SELECT * FROM orders WHERE amount > 2000 AND user_id = 3;
+
+💡 Returns orders where both conditions are met.
+
+
+### 2. `OR` – At Least One Condition Must Be True  
+🔹 Find users whose name is either "Amit Sharma" or "Priya Patel"  
+
+SELECT * FROM users WHERE name = 'Amit Sharma' OR name = 'Priya Patel';
+
+💡 Returns users who match at least one condition.
+
+
+### 3. `NOT` – Negate a Condition  
+🔹 Find products that are NOT priced at ₹500  
+
+SELECT * FROM products WHERE NOT price = 500;
+
+💡 Returns all products except those priced at ₹500.
+
+
+### 4. Combining `AND`, `OR`, and `NOT`  
+🔹 Find orders where (`amount > 2000` OR `user_id = 3`) AND `order_date` is after '2024-01-01'  
+
+SELECT * FROM orders WHERE (amount > 2000 OR user_id = 3) AND order_date > '2024-01-01';
+
+💡 Parentheses ensure the correct logical precedence.
+
+
+##  `BETWEEN` – Range Filtering  
+Used to select values within a range (including both endpoints).  
+
+🔹 Example: Find orders where amount is between ₹2000 and ₹5000  
+
+SELECT * FROM orders WHERE amount BETWEEN 2000 AND 5000;
+
+💡 Equivalent to:  
+
+SELECT * FROM orders WHERE amount >= 2000 AND amount <= 5000;
+
+##  `IN` – Match Any Value in a List  
+Used to match multiple values without multiple `OR` conditions.
+
+🔹 Example: Find users named 'Amit Sharma', 'Priya Patel', or 'Rahul Verma'  
+
+SELECT * FROM users WHERE name IN ('Amit Sharma', 'Priya Patel', 'Rahul Verma');
+
+💡 Equivalent to:  
+
+SELECT * FROM users WHERE name = 'Amit Sharma' OR name = 'Priya Patel' OR name = 'Rahul Verma';
+
+
+🔹 Example: Find orders placed by users with `user_id` 1, 3, or 5  
+
+SELECT * FROM orders WHERE user_id IN (1, 3, 5);
+
+
+## `LIKE` – Pattern Matching  
+Used for partial matching in text search.  
+- `%` → Matches any number of characters.  
+- `_` → Matches a single character.
+
+🔹 Example: Find users whose names start with 'A'  
+
+SELECT * FROM users WHERE name LIKE 'A%';
+
+💡 Matches: `"Amit Sharma"`, `"Arjun Kumar"`, etc.
+
+🔹 Example: Find users whose email ends with '@gmail.com'  
+
+SELECT * FROM users WHERE email LIKE '%@gmail.com';
+
+💡 Matches: `"rahul@gmail.com"`, `"priya.patel@gmail.com"`, etc.
+
+🔹 Example: Find products with 'phone' anywhere in the name  
+
+SELECT * FROM products WHERE product_name LIKE '%phone%';
+
+💡 Matches: `"Smartphone"`, `"Headphone"`, etc.
+
+🔹 Example: Find names with exactly 5 letters (e.g., "Amit" won't match, but "Rahul" will)  
+
+SELECT * FROM users WHERE name LIKE '_____';
+
+💡 Each underscore `_` represents a single character.
+
+
+## `IS NULL` – Check for NULL Values  
+Used to find missing or undefined values.
+
+🔹 Example: Find orders where the amount is not set (`NULL`)  
+
+SELECT * FROM orders WHERE amount IS NULL;
+
+
+🔹 Example: Find users who haven’t provided an email  
+
+SELECT * FROM users WHERE email IS NULL;
+
+
+🔹 Example: Find users who have an email (not NULL values)  
+
+SELECT * FROM users WHERE email IS NOT NULL;
+
+
+## -- Built-in Functions
+
+-- Average Order Amount
+SELECT AVG(amount) AS average_order FROM orders;
+
+-- Maximum and Minimum Order Amount
+SELECT MAX(amount) AS highest_order, MIN(amount) AS lowest_order FROM orders;
+
+## 1. String Functions  
+Used for manipulating text values.  
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `LENGTH(str)` | Returns the length of a string | `SELECT LENGTH('Postgre');` → 10 |
+| `UPPER(str)` | Converts text to uppercase | `SELECT UPPER('hello');` → HELLO |
+| `LOWER(str)` | Converts text to lowercase | `SELECT LOWER('HELLO');` → hello |
+| `CONCAT(str1, str2, ..)` | Combines multiple strings | `SELECT CONCAT('Hello', ' World');` → Hello World |
+| `SUBSTRING(str, start, length)` | Extracts part of a string | `SELECT SUBSTRING('Postgre', 1, 4);` → Post |
+| `TRIM(str)` | Removes leading & trailing spaces | `SELECT TRIM('  Postgre  ');` → Postgre |
+| `REPLACE(str, old, new)` | Replaces text in a string | `SELECT REPLACE('abc123', '123', '456');` → abc456 |
+
+---
+
+## 2. Numeric Functions  
+Used for mathematical calculations.  
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `ABS(num)` | Returns absolute value | `SELECT ABS(-10);` → 10 |
+| `ROUND(num, d)` | Rounds a number to `d` decimal places | `SELECT ROUND(3.14159, 2);` → 3.14 |
+| `CEIL(num)` | Rounds up to the nearest integer | `SELECT CEIL(3.1);` → 4 |
+| `FLOOR(num)` | Rounds down to the nearest integer | `SELECT FLOOR(3.9);` → 3 |
+| `POWER(a, b)` | Returns `a^b` (exponentiation) | `SELECT POWER(2, 3);` → 8 |
+| `SQRT(num)` | Returns square root | `SELECT SQRT(16);` → 4 |
+| `MOD(a, b)` | Returns remainder of `a / b` | `SELECT MOD(10, 3);` → 1 |
+| `RANDOM()` | Returns a random number between 0 and 1 | `SELECT RANDOM();` → 0.8345 |
+
+---
+
+## 3. Date & Time Functions  
+Used for handling dates and timestamps.  
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `CURRENT_DATE` | Returns the current date | `SELECT CURRENT_DATE;` → 2025-03-03 |
+| `CURRENT_TIME` | Returns the current time | `SELECT CURRENT_TIME;` → 14:30:15.12345 |
+| `CURRENT_TIMESTAMP` | Returns the current date & time | `SELECT CURRENT_TIMESTAMP;` → 2025-03-03 14:30:15.12345 |
+| `AGE(timestamp)` | Returns age (time difference) | `SELECT AGE('2000-01-01');` → 25 years |
+| `DATE_PART(unit, timestamp)` | Extracts part of a date | `SELECT DATE_PART('year', '2024-12-31');` → 2024 |
+| `NOW()` | Returns current date & time | `SELECT NOW();` → 2025-03-03 14:30:15.12345 |
+| `EXTRACT(field FROM timestamp)` | Extracts a specific date field | `SELECT EXTRACT(MONTH FROM NOW());` → 3 |
+
+---
+
+## 4. Aggregate Functions  
+Used to summarize data.  
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `COUNT(column)` | Counts number of rows | `SELECT COUNT(*) FROM users;` |
+| `SUM(column)` | Returns sum of values | `SELECT SUM(amount) FROM orders;` |
+| `AVG(column)` | Returns average value | `SELECT AVG(price) FROM products;` |
+| `MIN(column)` | Returns minimum value | `SELECT MIN(price) FROM products;` |
+| `MAX(column)` | Returns maximum value | `SELECT MAX(price) FROM products;` |
+| `STRING_AGG(column, separator)` | Concatenates values with a separator | `SELECT STRING_AGG(name, ', ') FROM users;` |
+
+---
+
+## 5. Conditional Functions  
+Used for conditional logic in queries.  
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `COALESCE(value1, value2, ..)` | Returns first non-null value | `SELECT COALESCE(NULL, 'Hello', 'World');` → Hello |
+| `NULLIF(a, b)` | Returns NULL if `a = b`, else returns `a` | `SELECT NULLIF(10, 10);` → NULL |
+| `CASE WHEN` | Conditional statements |  
+
+SELECT name,
+       CASE 
+           WHEN age < 18 THEN 'Minor' 
+           WHEN age BETWEEN 18 AND 60 THEN 'Adult' 
+           ELSE 'Senior' 
+       END AS category
+FROM users;
+
+----
+
+### `GROUP BY` in Postgre  
+The `GROUP BY` clause is used to group rows that have the same values in specified columns and perform aggregate functions on each group.
+
+## 1. Basic Syntax  
+
+SELECT column_name, aggregate_function(column_name) 
+FROM table_name 
+GROUP BY column_name;
+
+- `column_name` → Column used for grouping.  
+- `aggregate_function()` → Function like `SUM()`, `COUNT()`, `AVG()`, `MAX()`, etc.
+
+---
+
+## 2. Example: Count Orders Per User
+🔹 Find how many orders each user has placed:  
+
+SELECT user_id, COUNT(order_id) AS total_orders 
+FROM orders 
+GROUP BY user_id;
+
+💡 Groups orders by `user_id` and counts the number of orders for each user.
+
+---
+
+## 3. Example: Total Sales per User
+🔹 Find total amount spent by each user:  
+
+SELECT user_id, SUM(amount) AS total_spent 
+FROM orders 
+GROUP BY user_id;
+
+💡 Groups by `user_id` and calculates total order amount per user.
+
+---
+
+## 4. Example: Average Product Price Per Category
+🔹 Find the average price of products per category:  
+
+SELECT category, AVG(price) AS avg_price 
+FROM products 
+GROUP BY category;
+
+💡 Groups by `category` and calculates the average product price.
+
+---
+
+## 5. Example: Count Users per Email Domain
+🔹 Find how many users have each email domain (`@gmail.com`, `@yahoo.com`, etc.):  
+
+SELECT SUBSTRING(email FROM POSITION('@' IN email) + 1) AS domain, COUNT(*) AS total_users
+FROM users 
+GROUP BY domain;
+
+💡 Groups by email domain and counts users in each domain.
+
+---
+
+## 6. Using `GROUP BY` with `HAVING` (Filter Groups)
+🔹 Find users who have placed more than 2 orders:  
+
+SELECT user_id, COUNT(order_id) AS total_orders 
+FROM orders 
+GROUP BY user_id 
+HAVING COUNT(order_id) > 2;
+
+💡 Filters groups where `total_orders > 2`.  
+💡 `HAVING` works like `WHERE`, but for aggregated results.
+
