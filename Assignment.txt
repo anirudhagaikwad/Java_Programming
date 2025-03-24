@@ -171,4 +171,14 @@ Read continuous numeric inputs from the console using AsynchronousByteChannel or
 59)PROBLEM 3: Reverse an Array
    Given a generic array, reverse its elements.
 
+60)Create DateManipulator class to convert String to date, date to String and to find out number of days between two dates.
+61)Create a List of java defined wrapper classes and perform insert/delete/search/iterate/sort operations.
+62)Create a collection of Employee class and sort objects using comparable and comparator interfaces.
+63)Implement Queue data structure using LinkedList and Queue collection.
+64)Create an Employee HashSet collection and override equals & hashCode methods to understand how the set maintains uniqueness using these methods
+65)Create a Deadlock class to demonstrate deadlock in multithreading environment.
+66)Implement wait, notify and notifyAll methods.
+67)Demonstrate how to share threadlocal data between multiple threads.
+68)Create multiple threads using anonymous inner classes.
+
 

@@ -1,0 +1,10 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+header { text-align: center; }
+nav a { margin: 0 10px; }
+.book, .cart-item, .order { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+button { background-color: #4CAF50; color: white; padding: 5px 10px; border: none; cursor: pointer; }
+button:hover { background-color: #45a049; }
+input { display: block; margin: 10px 0; padding: 5px; }

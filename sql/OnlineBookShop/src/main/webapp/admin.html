@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Add Book</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Add New Book</h1>
+    <form action="/online-bookshop/admin/book" method="post">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="number" name="authorId" placeholder="Author ID" required>
+        <input type="number" name="categoryId" placeholder="Category ID" required>
+        <input type="number" name="price" step="0.01" placeholder="Price" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <input type="text" name="isbn" placeholder="ISBN" required>
+        <button type="submit">Add Book</button>
+    </form>
+    <a href="index.html">Back</a>
+	<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+controller\SignInServlet.class
+controller\WelcomeServlet.class
+util\HibernateUtil.class
+controller\SignUpServlet.class
+model\User.class

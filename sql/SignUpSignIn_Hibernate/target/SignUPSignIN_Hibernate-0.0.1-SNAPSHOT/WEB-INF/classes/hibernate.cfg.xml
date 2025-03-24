@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/signupsignin_db</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">123</property>
+
+        <!-- Hibernate dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Automatically create/update the schema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Enable transaction management -->
+        <property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.connection.autocommit">true</property>
+        <!-- Mapping to entity class -->
+        <mapping class="model.User"/>
+    </session-factory>
+</hibernate-configuration>
