@@ -35,7 +35,6 @@ public class BorrowingService {
         this.bookService = bookService;
         this.memberService = memberService;
     }
-
     @Transactional
     public BorrowingRecord borrowBook(Long bookId, Long memberId) {
         Book book = bookService.getBookById(bookId);
@@ -47,7 +46,6 @@ public class BorrowingService {
         if (member.getCurrentBorrows() >= maxBorrows) {
             throw new BorrowingException("Member has reached maximum borrow limit");
         }
-
         BorrowingRecord borrowing = new BorrowingRecord();
         borrowing.setBook(book);
         borrowing.setMember(member);
